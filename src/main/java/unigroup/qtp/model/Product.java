@@ -10,8 +10,9 @@ public class Product {
     private float price;
 
     public Product(String id, String name, Integer price){
+        this.id = id;
         this.name = name;
-        this.price = 0;
+        this.price = price;
     }
 
 }
