@@ -1,8 +1,17 @@
 package unigroup.qtp.model;
 
+import lombok.Data;
+
+@Data
+
 public class Product {
-    //PRODUCT-ID
-    //NAME
-    //PRICE
-    //
+    private String id;
+    private String name;
+    private float price;
+
+    public Product(String id, String name, Integer price){
+        this.name = name;
+        this.price = 0;
+    }
+
 }
