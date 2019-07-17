@@ -2,12 +2,10 @@ package unigroup.qtp.controller;
 
 import org.springframework.web.bind.annotation.*;
 import unigroup.qtp.model.Order;
-import unigroup.qtp.model.OrderMapper;
 import unigroup.qtp.model.Product;
 import unigroup.qtp.repository.OrderRepository;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,9 +28,8 @@ public class OrderController {
 
 
     @PutMapping("/orders/{id}")
-    public List<Order> editOrder(@PathVariable String id, @RequestBody OrderMapper order){
-        Order editOrder = new Order(order.getId());
-        return repository.editOrder(id, editOrder);
+    public List<Order> editOrder(@PathVariable String id, @RequestBody Order order){
+        return repository.editOrder(id, order);
     }
 
 

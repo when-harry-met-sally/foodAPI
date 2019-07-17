@@ -5,16 +5,16 @@ import lombok.Data;
 
 import java.util.*;
 
-@Data
 @AllArgsConstructor
+@Data
 public class Order {
     private String id;
-    private Map<Product, Integer> cart;
+    private List<Product> cart;
     private float price;
 
-    public Order (String id){
-        this.id = id;
-        this.cart = new HashMap<>();
+    public Order (){
+        this.id = UUID.randomUUID().toString();
+        this.cart = new ArrayList<>();
         this.price = 0;
     }
 

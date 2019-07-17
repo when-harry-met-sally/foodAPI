@@ -1,8 +1,6 @@
 package unigroup.qtp.repository;
 import lombok.Data;
 import unigroup.qtp.model.Order;
-import unigroup.qtp.model.Product;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -12,8 +10,8 @@ public class OrderRepository {
     private Map<String, Order> orders = new HashMap();
 
     public List<Order> addOrder(){
-        String id =  UUID.randomUUID().toString();
-        this.orders.put(id, new Order(id));
+        Order order = new Order();
+        this.orders.put(order.getId(), order);
         return this.orders.values().stream().collect(Collectors.toList());
     }
 
