@@ -1,17 +1,27 @@
 import React from 'react';
 import { products } from './productData';
+import Logo from './logo.png';
+import ProductCard from './components/ProductCard';
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			products: products,
+			order: {}
+		};
 	}
 
 	render() {
 		return (
 			<div className="App">
-				<h1>Q.T.P</h1>
-				<h1>Quesdallias, Tacos. Provecho!</h1>
+				<img src={Logo} />
+
+				<div className="ProductContainer">
+					{this.state.products.map(product => (
+						<ProductCard key={product.id} product={product} />
+					))}
+				</div>
 			</div>
 		);
 	}
