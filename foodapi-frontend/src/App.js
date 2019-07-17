@@ -12,14 +12,28 @@ class App extends React.Component {
 		};
 	}
 
+	addProductToLocalOrder = product => {
+		console.log(product);
+	};
+
 	render() {
 		return (
 			<div className="App">
-				<img src={Logo} />
+				<div>
+					<span>
+						<img src={Logo} />
+					</span>
+
+					<span>Cart</span>
+				</div>
 
 				<div className="ProductContainer">
 					{this.state.products.map(product => (
-						<ProductCard key={product.id} product={product} />
+						<ProductCard
+							key={product.id}
+							product={product}
+							addProductToLocalOrder={this.addProductToLocalOrder}
+						/>
 					))}
 				</div>
 			</div>
