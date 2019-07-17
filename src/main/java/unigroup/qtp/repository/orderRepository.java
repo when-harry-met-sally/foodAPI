@@ -1,4 +1,4 @@
 package unigroup.qtp.repository;
 
-public class orderRepository {
+public class OrderRepository {
 }
