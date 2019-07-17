@@ -1,33 +1,44 @@
 package unigroup.qtp.controller;
 
 import org.springframework.web.bind.annotation.*;
+import unigroup.qtp.model.Order;
+import unigroup.qtp.model.OrderMapper;
 import unigroup.qtp.model.Product;
 import unigroup.qtp.repository.OrderRepository;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class OrderController {
     OrderRepository repository = new OrderRepository();
-    @GetMapping("/order")
-    public List<Product> getOrder(){
-       return repository.getProducts();
+    @GetMapping("/orders")
+    public List<Order> getOrders(@RequestParam(value="id", defaultValue = "all") String id){
+        List<Order> orders =
+                id.equals("all") ?
+                        repository.getOrders().values().stream().collect(Collectors.toList()):
+                        Arrays.asList(repository.getOrders().get(id));
+        return orders;
     }
 
-    @PostMapping("/order")
-    public List<Product> addOrder(@RequestBody Product newProduct){
-        return repository.addProduct(newProduct);
+    @PostMapping("/orders")
+    public List<Order> addOrder(){
+        return repository.addOrder();
     }
 
-    @PutMapping("/order")
-    public List<Product> addOrder(@RequestBody List<Product> products){
-        repository.setProducts(products);
-        return products;
+
+    @PutMapping("/orders/{id}")
+    public List<Order> editOrder(@PathVariable String id, @RequestBody OrderMapper order){
+        Order editOrder = new Order(order.getId());
+        return repository.editOrder(id, editOrder);
     }
 
-    @DeleteMapping("/order")
-    public List<Product> deleteOrder(){
-        return repository.clearProducts();
+
+    @DeleteMapping("/orders/{id}")
+    public List<Order> deleteOrder(@PathVariable String id){
+        return repository.deleteOrder(id);
     }
 
 }

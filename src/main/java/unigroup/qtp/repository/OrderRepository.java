@@ -1,20 +1,29 @@
 package unigroup.qtp.repository;
 import lombok.Data;
+import unigroup.qtp.model.Order;
 import unigroup.qtp.model.Product;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
 
 @Data
 public class OrderRepository {
-    private List<Product> products = new ArrayList<>();
+    private Map<String, Order> orders = new HashMap();
 
-    public List<Product> addProduct(Product newProduct){
-        this.products.add(newProduct);
-        return this.products;
+    public List<Order> addOrder(){
+        String id =  UUID.randomUUID().toString();
+        this.orders.put(id, new Order(id));
+        return this.orders.values().stream().collect(Collectors.toList());
     }
 
-    public List<Product> clearProducts(){
-        this.products = new ArrayList<>();
-        return this.products;
+    public List<Order> editOrder(String id, Order edit){
+        orders.put(id, edit);
+        return this.orders.values().stream().collect(Collectors.toList());
+    }
+
+    public List<Order> deleteOrder(String id){
+        orders.remove(id);
+        return this.orders.values().stream().collect(Collectors.toList());
     }
 }
