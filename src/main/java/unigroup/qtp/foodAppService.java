@@ -9,17 +9,3 @@ public class foodAppService {
             SpringApplication.run(foodAppService.class, args);
         }
 }
-
-//APP SPECS
-//1) CART LIST
-//   TOTAL
-//2) ORDER TRACKING
-//   LOCATION - TO AND FRO
-//   PROGRESS - CURRENT LOCATION
-//   COMPLETED
-//3) RATING
-//4) PRODUCT LIST
-//   PRICES
-//5) FAVORITES
-
-//ORDER OBJECT

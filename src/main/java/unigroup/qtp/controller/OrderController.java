@@ -13,11 +13,12 @@ import java.util.stream.Collectors;
 public class OrderController {
     OrderRepository repository = new OrderRepository();
     @GetMapping("/orders")
-    public List<Order> getOrders(@RequestParam(value="id", defaultValue = "all") String id){
+    public List<Order> getOrders(@RequestParam(value="id", defaultValue = "all") String id, @RequestParam(value="favorites") String favorites){
         List<Order> orders =
                 id.equals("all") ?
                         repository.getOrders().values().stream().collect(Collectors.toList()):
                         Arrays.asList(repository.getOrders().get(id));
+        System.out.println(favorites);
         return orders;
     }
 
