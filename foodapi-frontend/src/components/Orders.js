@@ -1,7 +1,14 @@
 import React from 'react';
 import Order from './Order';
 
-const Orders = ({ orders, createNewOrder, setCurrentOrder }) => (
+const Orders = ({
+	orders,
+	createNewOrder,
+	setCurrentOrder,
+	currentOrderID,
+	deleteOrder,
+	updateQuantity
+}) => (
 	<div className="Container">
 		{orders.length ? (
 			orders.map(order => (
@@ -9,6 +16,8 @@ const Orders = ({ orders, createNewOrder, setCurrentOrder }) => (
 					key={order.id}
 					order={order}
 					setCurrentOrder={setCurrentOrder}
+					currentOrderID={currentOrderID}
+					deleteOrder={deleteOrder}
 				/>
 			))
 		) : (

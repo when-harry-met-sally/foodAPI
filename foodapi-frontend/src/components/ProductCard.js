@@ -5,7 +5,10 @@ const ProductCard = ({ product, addProductToOrder }) => (
 		<img className="foodImg" src={product.img} alt="FOOD" />
 		<h1>{product.name}</h1>
 		<h2>{`${product.price} Pesos`}</h2>
-		<div className="addButton" onClick={() => addProductToOrder(product)}>
+		<div
+			className="addButton clickable"
+			onClick={() => addProductToOrder(product)}
+		>
 			Add to Current Order
 		</div>
 	</div>

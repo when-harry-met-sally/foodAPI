@@ -9,6 +9,7 @@
 		'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	transition: 0.4s;
 }
 
 .NavSpan {
@@ -49,6 +50,7 @@ img {
 	padding: 1rem;
 	width: 85%;
 	border: solid 2px #7aa5d2;
+	/* background-color: #7aa5d2; */
 }
 
 .addButton {
@@ -62,4 +64,8 @@ img {
 
 .span {
 	display: inline-flex;
+}
+
+.clickable:hover {
+	transform: scale(1.2, 1.2);
 }

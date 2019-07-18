@@ -22,37 +22,37 @@ Products {
 export const products = [
 	{
 		id: 0,
-		name: 'Tacos Al Pastor',
+		name: 'Taco Al Pastor',
 		price: 15.0,
 		img: alpastor
 	},
 	{
 		id: 1,
-		name: 'Tacos de Asada',
+		name: 'Taco de Asada',
 		price: 15.0,
 		img: asada
 	},
 	{
 		id: 2,
-		name: 'Tacos de Lengua',
+		name: 'Taco de Lengua',
 		price: 20.0,
 		img: lengua
 	},
 	{
 		id: 3,
-		name: 'Tacos de Carnitas',
+		name: 'Taco de Carnitas',
 		price: 20.0,
 		img: carnitas
 	},
 	{
 		id: 4,
-		name: 'Tacos de Cabeza',
+		name: 'Taco de Cabeza',
 		price: 25.0,
 		img: cabeza
 	},
 	{
 		id: 5,
-		name: 'Tamales de Pollo',
+		name: 'Tamale de Pollo',
 		price: 20.0,
 		img: tamales
 	},

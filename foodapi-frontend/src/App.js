@@ -54,6 +54,8 @@ class App extends React.Component {
 						orders={this.state.orders}
 						createNewOrder={this.createNewOrder}
 						setCurrentOrder={this.setCurrentOrder}
+						currentOrderID={this.state.currentOrderID}
+						deleteOrder={this.deleteOrder}
 					/>
 				);
 		}
@@ -66,14 +68,23 @@ class App extends React.Component {
 	createNewOrder = async () => {
 		const response = await axios.post('/orders');
 
-		this.setState(
-			{ orders: response.data },
-			console.log(this.state.orders)
-		);
+		this.setState({ orders: response.data });
 	};
 
 	setCurrentOrder = orderID => {
 		this.setState({ currentOrderID: orderID });
+	};
+
+	deleteOrder = async orderID => {
+		const response = await axios.delete(`/orders/${orderID}`);
+
+		this.setState({
+			orders: response.data,
+			currentOrderID:
+				this.state.currentOrderID === orderID
+					? ''
+					: this.state.currentOrderID
+		});
 	};
 
 	componentWillMount = async () => {
@@ -87,7 +98,10 @@ class App extends React.Component {
 				<div className="NavSpan">
 					<img src={Logo} />
 
-					<NavBar updateCurrentScreen={this.updateCurrentScreen} />
+					<NavBar
+						updateCurrentScreen={this.updateCurrentScreen}
+						currentOrderID={this.state.currentOrderID}
+					/>
 				</div>
 
 				{this.returnCurrentScreen()}
