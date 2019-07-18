@@ -1,14 +1,18 @@
 import React from 'react';
 import { products } from './productData';
 import Logo from './logo.png';
-import ProductCard from './components/ProductCard';
+import ProductContainer from './components/ProductContainer';
+import Orders from './components/Orders';
+import NavBar from './components/NavBar';
+import axios from 'axios';
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			currentScreen: 'Menu',
 			products: products,
-			order: {}
+			orders: []
 		};
 	}
 
@@ -16,26 +20,44 @@ class App extends React.Component {
 		console.log(product);
 	};
 
+	returnCurrentScreen = () => {
+		switch (this.state.currentScreen) {
+			case 'Menu':
+				return (
+					<ProductContainer
+						products={this.state.products}
+						addProductToLocalOrder={this.addProductToLocalOrder}
+					/>
+				);
+
+			case 'Orders':
+				return (
+					<Orders
+						orders={this.state.orders}
+						createNewOrder={this.createNewOrder}
+					/>
+				);
+		}
+	};
+
+	updateCurrentScreen = newScreen => {
+		this.setState({ currentScreen: newScreen });
+	};
+
+	createNewOrder = () => {
+		console.log('Yeet');
+	};
+
 	render() {
 		return (
 			<div className="App">
-				<div>
-					<span>
-						<img src={Logo} />
-					</span>
+				<div className="NavSpan">
+					<img src={Logo} />
 
-					<span>Cart</span>
+					<NavBar updateCurrentScreen={this.updateCurrentScreen} />
 				</div>
 
-				<div className="ProductContainer">
-					{this.state.products.map(product => (
-						<ProductCard
-							key={product.id}
-							product={product}
-							addProductToLocalOrder={this.addProductToLocalOrder}
-						/>
-					))}
-				</div>
+				{this.returnCurrentScreen()}
 			</div>
 		);
 	}

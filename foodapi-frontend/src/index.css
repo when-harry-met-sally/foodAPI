@@ -11,15 +11,36 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.NavSpan {
+	display: inline-flex;
+	/* border: solid black 1px; */
+	width: 100%;
+	padding: 1rem;
+}
+
+.NavBar {
+	display: inline-flex;
+	width: 100%;
+	text-align: center;
+}
+
+.NavBar h2 {
+	font-size: 2.5rem;
+	width: 20%;
+	height: 30%;
+	margin-top: 10rem;
+}
+
 img {
-	width: 23%;
-	height: 23%;
+	width: 20%;
+	height: 20%;
 }
 
 .ProductContainer {
 	text-align: center;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-row-gap: 1rem;
 	margin-left: 5rem;
 	margin-right: 5rem;
 }
@@ -27,5 +48,9 @@ img {
 .ProductCard {
 	padding: 1rem;
 	width: 85%;
-	border: solid 1px black;
+	border: solid 2px #7aa5d2;
+}
+
+.addButton {
+	font-size: 1.5rem;
 }
