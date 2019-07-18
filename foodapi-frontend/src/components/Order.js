@@ -6,7 +6,10 @@ const Order = ({ order, setCurrentOrder }) => (
 		<h2>{`Price: $${order.price}`}</h2>
 
 		{order.cart.map(product => (
-			<h3>{product.name}</h3>
+			<div className="span">
+				<h3>{product.name} </h3>
+				<h3>{product.price}</h3>
+			</div>
 		))}
 	</div>
 );

@@ -17,7 +17,7 @@ class App extends React.Component {
 		};
 	}
 
-	addProductToLocalOrder = async product => {
+	addProductToOrder = async product => {
 		// need to check if current id is empty
 		const currentOrder = this.state.orders.filter(
 			order => order.id === this.state.currentOrderID
@@ -28,13 +28,13 @@ class App extends React.Component {
 			cart: [...currentOrder.cart, product]
 		};
 
+		const response = await axios.put(
+			`/orders/${this.state.currentOrderID}`,
+			newCurrentOrder
+		);
+
 		this.setState({
-			orders: [
-				...this.state.orders.filter(
-					order => order.id !== this.state.currentOrderID
-				),
-				newCurrentOrder
-			]
+			orders: response.data
 		});
 	};
 
@@ -44,7 +44,7 @@ class App extends React.Component {
 				return (
 					<ProductContainer
 						products={this.state.products}
-						addProductToLocalOrder={this.addProductToLocalOrder}
+						addProductToOrder={this.addProductToOrder}
 					/>
 				);
 
