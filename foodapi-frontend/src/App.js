@@ -11,13 +11,31 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			currentScreen: 'Menu',
+			currentOrderID: '',
 			products: products,
 			orders: []
 		};
 	}
 
-	addProductToLocalOrder = product => {
-		console.log(product);
+	addProductToLocalOrder = async product => {
+		// need to check if current id is empty
+		const currentOrder = this.state.orders.filter(
+			order => order.id === this.state.currentOrderID
+		)[0];
+
+		const newCurrentOrder = {
+			...currentOrder,
+			cart: [...currentOrder.cart, product]
+		};
+
+		this.setState({
+			orders: [
+				...this.state.orders.filter(
+					order => order.id !== this.state.currentOrderID
+				),
+				newCurrentOrder
+			]
+		});
 	};
 
 	returnCurrentScreen = () => {
@@ -35,6 +53,7 @@ class App extends React.Component {
 					<Orders
 						orders={this.state.orders}
 						createNewOrder={this.createNewOrder}
+						setCurrentOrder={this.setCurrentOrder}
 					/>
 				);
 		}
@@ -44,8 +63,22 @@ class App extends React.Component {
 		this.setState({ currentScreen: newScreen });
 	};
 
-	createNewOrder = () => {
-		console.log('Yeet');
+	createNewOrder = async () => {
+		const response = await axios.post('/orders');
+
+		this.setState(
+			{ orders: response.data },
+			console.log(this.state.orders)
+		);
+	};
+
+	setCurrentOrder = orderID => {
+		this.setState({ currentOrderID: orderID });
+	};
+
+	componentWillMount = async () => {
+		const response = await axios.get('/orders');
+		this.setState({ orders: response.data });
 	};
 
 	render() {

@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCard from './ProductCard';
 
 const ProductContainer = ({ products, addProductToLocalOrder }) => (
-	<div className="ProductContainer">
+	<div className="Container">
 		{products.map(product => (
 			<ProductCard
 				key={product.id}

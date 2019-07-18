@@ -1,7 +1,8 @@
 import React from 'react';
 
 const ProductCard = ({ product, addProductToLocalOrder }) => (
-	<div className="ProductCard">
+	<div className="Card">
+		<img className="foodImg" src={product.img} alt="FOOD" />
 		<h1>{product.name}</h1>
 		<h2>{`${product.price} Pesos`}</h2>
 		<div
