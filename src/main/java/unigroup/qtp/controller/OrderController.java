@@ -1,5 +1,6 @@
 package unigroup.qtp.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import unigroup.qtp.model.Order;
 import unigroup.qtp.repository.OrderRepository;
@@ -43,5 +44,25 @@ public class OrderController {
     public List<Order> deleteOrder(@PathVariable String id){
         return repository.deleteOrder(id);
     }
+
+    //EXCEPTION HANDLING
+
+//    @ResponseBody
+//    @ExceptionHandler(IllegalArgumentException.class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public String IllegalArgumentException(IllegalArgumentException ex) {
+//        return "Illegal Argument";
+//    }
+
+//    @ResponseBody
+//    @ExceptionHandler(GameNotFoundException.class)
+//    @ResponseStatus(HttpStatus.NOT_FOUND)
+//    public String GameNotFoundException(GameNotFoundException ex) {
+//        log.warn("Game not found",ex);
+//        return "Game not found";
+//    }
+
+
+
 
 }

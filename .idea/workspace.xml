@@ -62,13 +62,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/unigroup/qtp/controller/OrderController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="292">
+              <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#851#852#0" expanded="true" />
                 <element signature="e#904#905#0" expanded="true" />
-                <element signature="e#968#969#0" expanded="true" />
                 <element signature="e#1012#1013#0" expanded="true" />
                 <element signature="e#1283#1284#0" expanded="true" />
                 <element signature="e#1332#1333#0" expanded="true" />
@@ -85,10 +84,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/unigroup/qtp/model/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/unigroup/qtp/repository/OrderRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/unigroup/qtp/foodAppService.java" />
         <option value="$PROJECT_DIR$/src/main/java/unigroup/qtp/model/Order.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unigroup/qtp/model/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/unigroup/qtp/controller/OrderController.java" />
       </list>
     </option>
@@ -213,6 +212,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="unigroup" type="462c0819:PsiDirectoryNode" />
               <item name="qtp" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="foodApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="foodAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="unigroup" type="462c0819:PsiDirectoryNode" />
+              <item name="qtp" type="462c0819:PsiDirectoryNode" />
               <item name="repository" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -276,7 +285,7 @@
     <frame x="0" y="23" width="2560" height="1320" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15488483" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15488483" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -286,7 +295,7 @@
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32980457" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32980457" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -310,13 +319,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unigroup/qtp/controller/inventoryController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/unigroup/qtp/model/Inventory.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/unigroup/qtp/model/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unigroup/qtp/repository/OrderRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -337,6 +339,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unigroup/qtp/model/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unigroup/qtp/model/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -346,13 +355,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unigroup/qtp/controller/OrderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="292">
+          <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#851#852#0" expanded="true" />
             <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#968#969#0" expanded="true" />
             <element signature="e#1012#1013#0" expanded="true" />
             <element signature="e#1283#1284#0" expanded="true" />
             <element signature="e#1332#1333#0" expanded="true" />
