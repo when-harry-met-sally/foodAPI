@@ -18,7 +18,8 @@ public class OrderController {
             orders = orders.stream().filter(order -> order.getFavorite() == favoriteQuery).collect(Collectors.toList());
         }
         if (ratingQuery != null){
-            orders = orders.stream().filter(order -> order.getRating() == ratingQuery).collect(Collectors.toList());
+            orders =
+                    orders.stream().filter(order -> order.getRating().equals(ratingQuery)).collect(Collectors.toList());
         }
         return orders;
     }
