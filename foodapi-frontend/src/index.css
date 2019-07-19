@@ -9,18 +9,19 @@
 		'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	transition: 0.4s;
 }
 
 .NavSpan {
 	display: inline-flex;
 	/* border: solid black 1px; */
-	width: 100%;
+	width: 90%;
 	padding: 1rem;
 }
 
 .NavBar {
 	display: inline-flex;
-	width: 100%;
+	width: 90%;
 	text-align: center;
 }
 
@@ -36,7 +37,7 @@ img {
 	height: 20%;
 }
 
-.ProductContainer {
+.Container {
 	text-align: center;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -45,12 +46,26 @@ img {
 	margin-right: 5rem;
 }
 
-.ProductCard {
+.Card {
 	padding: 1rem;
 	width: 85%;
 	border: solid 2px #7aa5d2;
+	/* background-color: #7aa5d2; */
 }
 
 .addButton {
 	font-size: 1.5rem;
+}
+
+.foodImg {
+	width: 100%;
+	height: 15rem;
+}
+
+.span {
+	display: inline-flex;
+}
+
+.clickable:hover {
+	transform: scale(1.2, 1.2);
 }

@@ -11,13 +11,31 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			currentScreen: 'Menu',
+			currentOrderID: '',
 			products: products,
 			orders: []
 		};
 	}
 
-	addProductToLocalOrder = product => {
-		console.log(product);
+	addProductToOrder = async product => {
+		// need to check if current id is empty
+		const currentOrder = this.state.orders.filter(
+			order => order.id === this.state.currentOrderID
+		)[0];
+
+		const newCurrentOrder = {
+			...currentOrder,
+			cart: [...currentOrder.cart, product]
+		};
+
+		const response = await axios.put(
+			`/orders/${this.state.currentOrderID}`,
+			newCurrentOrder
+		);
+
+		this.setState({
+			orders: response.data
+		});
 	};
 
 	returnCurrentScreen = () => {
@@ -26,7 +44,7 @@ class App extends React.Component {
 				return (
 					<ProductContainer
 						products={this.state.products}
-						addProductToLocalOrder={this.addProductToLocalOrder}
+						addProductToOrder={this.addProductToOrder}
 					/>
 				);
 
@@ -35,6 +53,9 @@ class App extends React.Component {
 					<Orders
 						orders={this.state.orders}
 						createNewOrder={this.createNewOrder}
+						setCurrentOrder={this.setCurrentOrder}
+						currentOrderID={this.state.currentOrderID}
+						deleteOrder={this.deleteOrder}
 					/>
 				);
 		}
@@ -44,8 +65,31 @@ class App extends React.Component {
 		this.setState({ currentScreen: newScreen });
 	};
 
-	createNewOrder = () => {
-		console.log('Yeet');
+	createNewOrder = async () => {
+		const response = await axios.post('/orders');
+
+		this.setState({ orders: response.data });
+	};
+
+	setCurrentOrder = orderID => {
+		this.setState({ currentOrderID: orderID });
+	};
+
+	deleteOrder = async orderID => {
+		const response = await axios.delete(`/orders/${orderID}`);
+
+		this.setState({
+			orders: response.data,
+			currentOrderID:
+				this.state.currentOrderID === orderID
+					? ''
+					: this.state.currentOrderID
+		});
+	};
+
+	componentWillMount = async () => {
+		const response = await axios.get('/orders');
+		this.setState({ orders: response.data });
 	};
 
 	render() {
@@ -54,7 +98,10 @@ class App extends React.Component {
 				<div className="NavSpan">
 					<img src={Logo} />
 
-					<NavBar updateCurrentScreen={this.updateCurrentScreen} />
+					<NavBar
+						updateCurrentScreen={this.updateCurrentScreen}
+						currentOrderID={this.state.currentOrderID}
+					/>
 				</div>
 
 				{this.returnCurrentScreen()}
